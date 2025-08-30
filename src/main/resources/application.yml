@@ -1,0 +1,27 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: cine-stark
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cine-stark-db
+    username: postgres
+    password: admin
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+app:
+  jwt:
+    secret: "oW3w4jxJ1Zkj82aU/1x2KjFQmXf8R5a0kGyDfdn0oXU="
+    expiration-ms: 3600000
+
+cloudinary:
+  url: cloudinary://579653429759787:TqJhCmj9-HLQvcwF0rWmKNkM7VE@dfmde7ylw
