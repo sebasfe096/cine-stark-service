@@ -8,5 +8,6 @@ public interface MovieService {
     GenericResponse createMovie(MovieRequest request, String token);
     GenericResponse getAllMovies(String token, int page, int size);
     GenericResponse updateMovie(Long id, MovieRequest request, String token);
+    GenericResponse getActiveMoviesWithShows();
     void disableMovie(Long id, String token);
 }

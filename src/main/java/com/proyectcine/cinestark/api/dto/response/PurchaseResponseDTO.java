@@ -5,18 +5,19 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class LoginResponse {
+public class PurchaseResponseDTO {
 
-    private String token;
-    private String type = "Bearer";
-    private String email;
-    private String role;
     private String fullName;
+    private String email;
     private String documentNumber;
-    private long expiration;
-
+    private String bank;
+    private Double cost;
+    private String seats;
+    private String date;
+    private String showTime;
 }

@@ -1,6 +1,7 @@
 package com.proyectcine.cinestark.api.controller;
 
 import com.proyectcine.cinestark.api.dto.request.RegisterRequest;
+import com.proyectcine.cinestark.api.dto.request.UpdateUserRequest;
 import com.proyectcine.cinestark.api.dto.response.GenericResponse;
 import com.proyectcine.cinestark.domain.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -22,5 +23,21 @@ public class UserController {
     public ResponseEntity<GenericResponse> register(@RequestBody RegisterRequest request) {
         log.info("begin service register -> {}", request);
         return ResponseEntity.ok(userService.registerUser(request));
+    }
+
+    @GetMapping("")
+    public ResponseEntity<GenericResponse> getUsers(@RequestHeader("Authorization") String token,
+                                                    @RequestParam(value = "page", defaultValue = "1") int page,
+                                                    @RequestParam(value = "size", defaultValue = "5") int size) {
+        log.info("begin service getUsers");
+        return ResponseEntity.ok(userService.getUsers(token, page, size));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<GenericResponse> updateUser(
+            @RequestHeader("Authorization") String token,
+            @PathVariable Long id,
+            @RequestBody UpdateUserRequest request) {
+        return ResponseEntity.ok(userService.updateUser(token, request, id));
     }
 }

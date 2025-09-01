@@ -19,4 +19,6 @@ public class MovieResponse {
     private String releaseDate;
     private String imageUrl;
     private Boolean enabled;
+    private String showDate;
+    private String showTime;
 }

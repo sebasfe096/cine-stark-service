@@ -5,7 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.OffsetDateTime;
 
 @Data
 @NoArgsConstructor
@@ -15,7 +17,9 @@ public class MovieRequest {
     private String description;
     private String genre;
     private Integer duration;
-    private LocalDateTime releaseDate;
+    private OffsetDateTime releaseDate;
     private MultipartFile image;
     private Boolean enabled;
+    private LocalDate showDate;
+    private LocalTime showTime;
 }

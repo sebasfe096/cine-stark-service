@@ -3,6 +3,17 @@ server:
 spring:
   application:
     name: cine-stark
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: "pruebasjavacine@gmail.com"
+    password: "n y w p t q q k s c z v s n a s"
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
 
   datasource:
     url: jdbc:postgresql://localhost:5432/cine-stark-db

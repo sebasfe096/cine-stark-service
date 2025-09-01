@@ -36,6 +36,7 @@ public class AuthServiceImpl implements AuthService {
         String token = jwtService.generateToken(user);
 
         return LoginResponse.builder().email(request.getEmail()).role(user.getRole().getName())
-                .type("Bearer").expiration(99999).token(token).build();
+                .type("Bearer").expiration(99999).token(token).fullName(user.getFirstName() + " " + user.getLastName())
+                .documentNumber(user.getDocumentNumber()).build();
     }
 }

@@ -2,7 +2,6 @@ package com.proyectcine.cinestark.api.controller;
 
 import com.proyectcine.cinestark.api.dto.request.MovieRequest;
 import com.proyectcine.cinestark.api.dto.response.GenericResponse;
-import com.proyectcine.cinestark.api.dto.response.MovieResponse;
 import com.proyectcine.cinestark.domain.service.MovieService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -10,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("v1/api/movie")
@@ -49,6 +46,11 @@ public class MovieController {
     public ResponseEntity<Void> disableMovie(@PathVariable Long id,@RequestHeader("Authorization") String token) {
         movieService.disableMovie(id, token);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/with-shows")
+    public ResponseEntity<GenericResponse> getMoviesWithShows() {
+        return ResponseEntity.ok(movieService.getActiveMoviesWithShows());
     }
 
 
